@@ -196,6 +196,7 @@ func (f *Framework) SignContainer(opts SignOptions) {
 		f.t.Setenv("COSIGN_REPOSITORY", opts.SignatureRepo)
 	}
 	err := sign.SignCmd(
+		context.Background(),
 		&options.RootOptions{
 			Timeout: 30 * time.Second,
 		},
